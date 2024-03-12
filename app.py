@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 from flask_cors import CORS
 from http import client
 from tools.apis import get_version, list_rule, start_img, start_record, end_img, end_record, my_record, record_detail, \
@@ -9,6 +9,11 @@ client.HTTPConnection._http_vsn_str = 'HTTP/1.1'
 app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+
+@app.route('/', methods=['GET'])
+def frontend():
+    return redirect("https://hsallenbili.github.io/bye_pft", code=302, Response=None)
 
 
 # 获取版本信息
