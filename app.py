@@ -3,6 +3,7 @@ from flask_cors import CORS
 from http import client
 from tools.apis import get_version, list_rule, start_img, start_record, end_img, end_record, my_record, record_detail, \
     get_info
+import webbrowser
 
 client.HTTPConnection._http_vsn_str = 'HTTP/1.1'
 
@@ -77,4 +78,5 @@ def get_i():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=11451)
+    webbrowser.open("http://127.0.0.1:11451")
+    app.run(host='0.0.0.0', port=11451)
